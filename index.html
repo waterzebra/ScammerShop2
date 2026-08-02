@@ -52,20 +52,16 @@ let due = 0
 let MT = 0
 
 function tutorial() {
-if (MT === 0) {
-MT = 1
+    // Toggle MT between 0 and 1
+    if (MT === 0) {
+        MT = 1;
+        music.play();
+    } else {
+        MT = 0;
+        music.stop();
+    }
 }
-else {
-MT = 0
-}
-if (MT === 1) {
-music.play();
-}
-if (MT === 0) {
-music.stop();
-}
-}
-
+  
 function jordan() {
 J = (J + 1)
 pop.play();
