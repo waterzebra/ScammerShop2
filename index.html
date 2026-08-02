@@ -15,6 +15,8 @@
 
 <button id ="Tutorial" onclick="tutorial()">Toggle Music</button>
 
+<button id ="Help" onclick="help()">Help</button>
+
 <script>
 
 let mny = new Audio("ChaChing.mp3")
@@ -83,7 +85,6 @@ money = (money - due)
 document.getElementById("Money").innerText = money
 MPC = (MPC + (due / 10))
 mny.play()
-alert("SUCCESS")
 if (MPC > 0) {
 J = 0
 NC = 0
@@ -103,6 +104,10 @@ NC = 0
 if (J === 0) {
 clear.play();
 }
+}
+
+function help() {
+alert("You have 10 money, (it shows your money where it shows the number) Click an item to add it to your cart, when you are finished shopping, click checkout. If you do not have enough, the checkout button will not work. Click clear cart to clear your cart.")
 }
 
 </script>
