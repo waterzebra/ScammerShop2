@@ -27,6 +27,8 @@ let clear = new Audio("ClearC.mp3")
 
 let music = new Audio("SickieJean.mp3")
 
+let SadVG = new Audio("ClearC.mp3")
+
 document.getElementById("Money").style.height = "30px"
 
 document.getElementById("jordans").style.height = "30px"
@@ -59,11 +61,14 @@ function tutorial() {
 if (MT === 0) {
 MT = 1;
 music.play();
+SadVG.play();
 } 
 else {
 MT = 0;
 music.pause();
 music.currentTime = 0;
+SadVG.pause();
+SadVG.currentTime = 0;
 }
 }
   
