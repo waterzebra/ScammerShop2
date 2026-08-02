@@ -13,7 +13,7 @@
 
 <button id ="cc" onclick="Ccart()">Clear cart</button>
 
-<button id ="Tutorial" onclick="tutorial()">Help</button>
+<button id ="Tutorial" onclick="tutorial()">Toggle Music</button>
 
 <script>
 
@@ -22,6 +22,8 @@ let mny = new Audio("ChaChing.mp3")
 let pop = new Audio("pop.mp3")
 
 let clear = new Audio("ClearC.mp3")
+
+let music = new Audio("SickieJean.mp3")
 
 document.getElementById("Money").style.height = "30px"
 
@@ -47,8 +49,21 @@ let NC = 0
 
 let due = 0
 
+let MT = 0
+
 function tutorial() {
-window.open("https://waterzebra.github.io/ScammerShop2help/")
+if (MT === 0) {
+MT = 1
+}
+else {
+MT = 0
+}
+if (MT === 1) {
+music.play();
+}
+if (MT === 0) {
+music.stop();
+}
 }
 
 function jordan() {
