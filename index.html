@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<button id ="Money" onclick="give()">10</button>
+
+<button id ="jordans" onclick="jordan()">Buy Jordans $10</button>
+
+<button id ="caN" onclick="NitroCan()">Buy Canned Nitrogen $15</button>
+
+<button id ="Checkou2ah" onclick="checkout()">Checkout</button>
+
+<button id ="cc" onclick="Ccart()">Clear cart</button>
+
+<button id ="Tutorial" onclick="tutorial()">Help</button>
+
+<script>
+
+let mny = new Audio("ChaChing.mp3")
+
+let pop = new Audio("pop.mp3")
+
+let clear = new Audio("ClearC.mp3")
+
+document.getElementById("Money").style.height = "30px"
+
+document.getElementById("jordans").style.height = "30px"
+
+document.getElementById("caN").style.height = "30px"
+
+document.getElementById("Checkou2ah").style.height = "30px"
+
+document.getElementById("cc").style.height = "30px"
+
+document.getElementById("Tutorial").style.height = "30px"
+
+document.body.style.backgroundColor = "grey";
+
+let money = 10
+
+let MPC = 0
+
+let J = 0
+
+let NC = 0
+
+let due = 0
+
+function tutorial() {
+window.open("file:///C:/Users/eeeeeeeeeeeeeeeeeeee/Desktop/Help.html")
+}
+
+function jordan() {
+J = (J + 1)
+pop.play();
+alert("Added Jordans to cart.")
+}
+
+function NitroCan() {
+NC = (NC + 1)
+pop.play();
+alert("Added canned nitrogen to cart.")
+}
+
+function checkout() {
+due = (due + (10 * J))
+due = (due + (15 * NC))
+if (money >= due) {
+money = (money - due)
+document.getElementById("Money").innerText = money
+MPC = (MPC + (due / 10))
+mny.play()
+alert("SUCCESS")
+if (MPC > 0) {
+J = 0
+NC = 0
+due = 0
+}
+}
+}
+
+function give() {
+money = (money + MPC)
+document.getElementById("Money").innerText = money
+}
+
+function Ccart() {
+J = 0
+NC = 0
+if (J === 0) {
+clear.play();
+alert("Cleared cart")
+if (NC === 0) {
+alert("confirmed")
+}
+}
+}
+
+
+</script>
+
+</body>
+</html>
