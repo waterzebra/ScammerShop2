@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 
 <html>
-<body> 
+<body> V26.2
 
 <button id ="Money" onclick="give()">10</button>
 
 <button id ="jordans" onclick="jordan()">Buy Jordans $10</button>
 
 <button id ="caN" onclick="NitroCan()">Buy Canned Nitrogen $15</button>
+
+<button id ="UPG" onclick="upgrade()">Upgrade Money Button (tier 2) $50</button>
+
+<button id ="UPG2" onclick="upgrade2()">Upgrade Money Button 2 (tier 2) $100</button>
 
 <button id ="Checkou2ah" onclick="checkout()">Checkout</button>
 
@@ -17,9 +21,13 @@
 
 <button id ="Help" onclick="help()">Help</button>
 
+<button id ="Money2" onclick="give2()">Buy second money button $50</button>
+
 <script>
 
 let mny = new Audio("ChaChing.mp3")
+
+let mny2 = new Audio("ChaChing.mp3")
 
 let pop = new Audio("pop.mp3")
 
@@ -30,6 +38,8 @@ let clear = new Audio("ClearC.mp3")
 let music = new Audio("audiogroup2.mp3")
 
 let SadVG = new Audio("ClearC.mp3")
+
+let power = new Audio("powerspch.mp3")
 
 document.getElementById("Money").style.height = "30px"
 
@@ -61,6 +71,12 @@ let MT = 0
 
 let cd = 0
 
+let tier = 1
+
+let twotier = 1
+
+let btoo = 0
+
 function tutorial() {
 if (cd === 0) {
 cd = 1
@@ -81,15 +97,15 @@ cd = 0
 }
   
 function jordan() {
+if (pop.paused === true) {
 J = (J + 1)
 pop.play();
-alert("Added Jordans to cart.")
+}
 }
 
 function NitroCan() {
 NC = (NC + 1)
 pop.play();
-alert("Added canned nitrogen to cart.")
 }
 
 function checkout() {
@@ -109,15 +125,22 @@ due = 0
 }
 
 function give() {
-money = (money + MPC)
-document.getElementById("Money").innerText = money
+if (MPC > 0) {
+if (mny.paused === true) {
+money = (money + (MPC * tier));
+document.getElementById("Money").innerText = money;
+mny.play();
+}
+}
 }
 
 function Ccart() {
 J = 0
 NC = 0
-if (J === 0) {
 clear.play();
+if (NC === 0) {
+if (J === 0) {
+}
 }
 }
 
@@ -126,7 +149,48 @@ pop.play();
 alert("You have 10 money, (it shows your money where it shows the number) Click an item to add it to your cart, when you are finished shopping, click checkout. If you do not have enough, the checkout button will not work. Click clear cart to clear your cart.")
 }
 
+function upgrade() {
+if (tier === 1) {
+if (money >= 50) {
+tier = 2
+money = (money - 50)
+document.getElementById("Money").innerText = money;
+document.getElementById("UPG").innerText = "Upgrade Clicker 100$ (tier 3)"
+}
+}
+}
+
+function upgrade2() {
+if (twotier === 1) {
+if (money >= 100) {
+twotier = 2
+money = (money - 100)
+document.getElementById("Money").innerText = money;
+document.getElementById("UPG2").innerText = "Upgrade Clicker 500$ (tier 3)"
+power.play();
+}
+}
+}
+
+function give2() {
+if (btoo === 0) {
+if (money >= 50) {
+money = (money - 50)
+btoo = (btoo + 1)
+document.getElementById("Money").innerText = money;
+document.getElementById("Money2").innerText = "$"
+}
+}
+else {
+if (mny2.paused === true) {
+money = (money + (MPC * twotier))
+document.getElementById("Money").innerText = money
+mny2.play();
+}
+}
+}
+
 </script>
 
-</body>
+</body> 
 </html>
